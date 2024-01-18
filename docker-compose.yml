@@ -1,0 +1,30 @@
+# run the image using the local Dockerfile
+version: '3.8'
+
+services:
+  nv_pytorch:
+    build: .
+    volumes:
+      - ./data:/workspace/data
+      - ./data/tensorboard_runs:/workspace/data/tensorboard_runs
+    ports:
+    # jupyter notebook server
+      - "8888:8888"
+    # tensorboard  
+      - "6006:6006"
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            capabilities: [gpu]
+    # Based on Nvidia recommendations: docker run --gpus all --ipc=host --ulimit memlock=-1 --ulimit stack=67108864    
+    # User may adjust atack memory if need more than 64 MB    
+    ipc: host
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      stack:
+        soft: 67108864
+        hard: 67108864
