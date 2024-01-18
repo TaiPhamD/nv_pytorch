@@ -1,5 +1,5 @@
 # Overview
-This project is to setup a simple dev environemnt to utilize Nvidia's Pytorch container. The image has a few addons from the stock Nvidia image:
+This project is to setup a simple dev environment to utilize Nvidia's Pytorch container. The image has a few addons from the stock Nvidia image:
 - Setup launching of container using compose yaml which is more readable than the stock nvidia docker run command
 - Add the recommended nvidia docker run command: `docker run --gpus all --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 `
 - Mount ./data to /workspace/data so the user can have easy access to their data
