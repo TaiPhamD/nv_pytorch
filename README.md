@@ -1,10 +1,10 @@
 # Overview
-This project is to setup a simple dev environemnt to utilize Nvidia's Pytorch container. The image has a few addons from the stock Nvidia image:
-- Setup launching of container using compose yaml which is more readable than the stock nvidia docker run command
-- Add the recommended nvidia docker run command: `docker run --gpus all --ipc=host --ulimit memlock=-1 --ulimit stack=67108864 `
+This docker image provides a simple environment to more easily utilize Nvidia's Pytorch container. The project has a few advantages compared to the stock Nvidia image:
+- Setup launching of container using docker-compose.yml which is more readable than the stock nvidia docker run command
+- Add the equivalence of the recommended nvidia docker run command: `docker run --gpus all --ipc=host --ulimit memlock=-1 --ulimit stack=67108864` in the docker-compose.yml format
 - Mount ./data to /workspace/data so the user can have easy access to their data
 - Starts tensorboard on port 6006 mapping to ./data/tensorboard_runs :/workspace/data/tensorboard_runs
-- Includes a simple MNIST example to show case the container includig Tensorboard logging
+- Includes a simple MNIST example to show case the using nvidia/pytorch:23.12-py3 container with Tensorboard logging
 
 # Pre-requisites
 - Docker
